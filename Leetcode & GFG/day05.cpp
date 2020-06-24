@@ -53,7 +53,7 @@ public:
     }
 };
 
-// Tortoise and Rabbit
+// Fast and Slow Pointer
 
 class Solution {
 public:
@@ -67,3 +67,4 @@ public:
         return t;
     }
 };
+
