@@ -103,8 +103,11 @@ public:
 
 
 
+
+
+
 53. Maximum Subarray
-// 
+//  Kadanes Algorithm
 
 class Solution {
 public:
@@ -124,3 +127,45 @@ public:
 
 
 
+
+
+56. Merge Intervals
+
+class Solution {
+public:
+    static bool cmp(vector<int>& a, vector<int>& b){
+        if(a[0] <= b[0]){
+            if(a[0]==b[0]){
+                if(a[1]<b[1]) return true;
+                else return false;
+            }
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        sort(intervals.begin(), intervals.end(), cmp);
+        vector< vector<int> > ans;
+        int n = intervals.size();
+        int i=0;
+        while(i<n){
+            int l1 = intervals[i][0];
+            int r1 = intervals[i][1];
+            int j=i+1;
+            while(j<n){
+                int l2 = intervals[j][0];
+                int r2 = intervals[j][1];
+                if(r1 >= l2){
+                    r1 = max(r1,r2);
+                    j++;
+                }
+                else break;
+            }
+            ans.push_back({l1,r1});
+            i=j;
+        }
+        return ans;
+    }
+};
