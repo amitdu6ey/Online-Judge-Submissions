@@ -53,8 +53,7 @@ public:
 
 Question : Remove BST keys outside the given range[L, R];
 
-node *
-removeOutsideRange(node *root, int min, int max)
+node *removeOutsideRange(node *root, int min, int max)
 {
     if (root == NULL)
         return NULL;
