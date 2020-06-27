@@ -33,7 +33,7 @@ public:
     }
 };
 
-118. Pascal's Triangle
+118. Pascals Triangle
 
 class Solution {
 public:
