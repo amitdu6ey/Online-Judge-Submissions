@@ -6,8 +6,8 @@ public:
     void dfs(vector<vector<char>>& grid, pair<int, int> point, map<pair<int, int>, bool>& vis){
         int n = grid.size();
         int m = grid[0].size();
-        int x = point.first;
-        int y = point.second;
+        int x, y;
+        tie(x,y) = point;
         vector< pair<int, int> > neighbours;
         for(int dx : {-1, 1}){
             if(x+dx>=0 and x+dx<n){
