@@ -81,3 +81,25 @@ public:
         return ans;
     }
 };
+
+4. Longest Subarray with 0 sum 
+    
+int maxLen(int nums[], int n) {
+    unordered_map<int, int> vis;
+    int sum = 0;
+    int ans = 0;
+    for(int i=0;i<n;i++) {
+        sum += nums[i];
+        vis[sum]=-1;
+    }
+    sum = 0;
+    for(int i=0;i<n;i++) {
+        sum += nums[i];
+        if(sum == 0) ans = max(ans, i+1);
+        else if(vis[sum] != -1)
+            ans = max(ans, i - vis[sum]);
+        else
+            vis[sum]=i;
+    }
+    return ans;
+}
