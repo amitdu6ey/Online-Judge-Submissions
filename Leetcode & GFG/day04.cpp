@@ -59,3 +59,25 @@ public:
         return ans;
     }
 };
+
+// O(N)
+
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        int ans = 0;
+        unordered_map<int, bool> vis;
+        for(int num : nums){
+            vis[num] = true;
+        }
+        for(auto num : nums){
+            if(vis[num - 1] == false){
+                // means sequence starts here
+                int cur_len = 0;
+                while(vis[num + cur_len])   cur_len++;
+                ans = max(ans, cur_len);
+            }
+        }
+        return ans;
+    }
+};
