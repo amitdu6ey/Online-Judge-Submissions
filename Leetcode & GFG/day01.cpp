@@ -21,6 +21,29 @@ public:
     }
 };
 
+287. Find the Duplicate Number
+
+class Solution {
+public:
+
+    
+    int findDuplicate(vector<int>& nums) {
+        int ans = -1;
+        for(int num : nums){
+            num = abs(num);
+
+            if(nums[num] < 0){
+                ans = num;
+                break;
+            }
+            
+            nums[num] *= -1;
+        }
+        return ans;
+    }
+};
+
+
 
 75. Sort Colors
 
@@ -169,4 +192,3 @@ public:
         return ans;
     }
 };
-
